@@ -1,0 +1,12 @@
+{
+  "name": "vue-ssr",
+  "version": "1.0.0",
+  "description": "Minimal setup for SSR with Vue.js",
+  "main": "app.js",
+  "scripts": {
+    "build:client": "webpack --config webpack.client.config.js",
+    "build:server": "webpack --config webpack.server.config.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

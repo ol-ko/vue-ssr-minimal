@@ -2,11 +2,36 @@
   "name": "vue-ssr",
   "version": "1.0.0",
   "description": "Minimal setup for SSR with Vue.js",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "build:client": "webpack --config webpack.client.config.js",
-    "build:server": "webpack --config webpack.server.config.js"
+    "serve": "node server",
+    "dev": "rimraf dist && npm run build:client && npm run build:server && node server",
+    "build:client": "webpack --config ./build/webpack.client.config.js",
+    "build:server": "webpack --config ./build/webpack.server.config.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.7.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "rimraf": "^2.6.2",
+    "vue-loader": "^15.3.0",
+    "vue-server-renderer": "^2.5.17",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.4",
+    "express": "^4.16.3",
+    "vue": "^2.5.17",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
+  }
 }

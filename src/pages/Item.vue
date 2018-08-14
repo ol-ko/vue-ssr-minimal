@@ -1,5 +1,7 @@
 <template>
-	{{item.name}}
+	<h1>
+		{{item.name}}
+	</h1>
 </template>
 
 <script>
@@ -9,7 +11,7 @@
 		},
 		computed: {
 			item() {
-				return this.$store.state.items[this.$route.params.id]
+				return this.$store.state.items[this.$route.params.id];
 			}
 		}
 	}

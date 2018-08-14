@@ -1,9 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-Vue.use(vuex);
+Vue.use(Vuex);
 
-import { fetchItem } from './api';
+const fetchItemApi = (id) => {
+	return Promise.resolve({
+		name: `Item ${id}`
+	});
+};
 
 export function createStore() {
 	return new Vuex.Store({
@@ -12,7 +16,7 @@ export function createStore() {
 		},
 		actions: {
 			fetchItem({ commit }, id) {
-				return fetchItem(id)
+				return fetchItemApi(id)
 					.then(item => {
 						commit('setItem', { id, item });
 					})

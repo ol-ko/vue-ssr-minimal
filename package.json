@@ -27,7 +27,6 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
-    "es6-promise": "^4.2.4",
     "express": "^4.16.3",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",

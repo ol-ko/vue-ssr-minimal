@@ -1,5 +1,4 @@
 import { createApp } from './app';
-import 'es6-promise/auto';
 
 const { app, router, store } = createApp();
 

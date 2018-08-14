@@ -7,10 +7,10 @@
     </div>
 </template>
 
-<!--<style lang="scss">-->
-    <!--$color: #ccc;-->
+<style lang="scss">
+    $color: #ccc;
 
-    <!--body {-->
-        <!--color: $color;-->
-    <!--}-->
-<!--</style>-->
+    body {
+        color: $color;
+    }
+</style>

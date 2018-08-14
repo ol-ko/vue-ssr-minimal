@@ -4,7 +4,7 @@ const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
 const path = require('path');
 
 module.exports = merge(baseConfig, {
-	entry: './src/entry-client.js',
+	entry: './src/entry-client.ts',
     output: {
         path: path.resolve(__dirname, '../dist/client'),
         filename: '[name].[chunkhash].js',

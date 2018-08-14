@@ -6,23 +6,30 @@ const isProduction = process.env.NODE_ENV === 'production';
 module.exports = {
 	module: {
 		rules: [
-			{
-				test: '/\.js$/',
-				exclude: /node_modules/,
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env']
-                }
-			},
+			// {
+			// 	test: '/\.js$/',
+			// 	exclude: /node_modules/,
+            //     loader: 'babel-loader',
+            //     options: {
+            //         presets: ['@babel/preset-env']
+            //     }
+			// },
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
 			},
             {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'url-loader',
+                test: /\.tsx?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
                 options: {
-                    limit: 10000,
+                    appendTsSuffixTo: [/\.vue$/],
+                }
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'file-loader',
+                options: {
                     name: '[name].[ext]?[hash]'
                 }
             },
@@ -43,5 +50,11 @@ module.exports = {
             },
 		]
 	},
+    resolve: {
+        extensions: ['.ts', '.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js'
+        }
+    },
 	plugins: [ new VueLoader.VueLoaderPlugin() ]
 };

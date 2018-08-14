@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-const fetchItemApi = (id) => {
+const fetchItemApi = (id:any) => {
 	return Promise.resolve({
 		name: `Item ${id}`
 	});

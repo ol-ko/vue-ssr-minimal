@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
-import { createRouter } from './router/router.js';
-import { createStore } from './store/store.js';
+import { createRouter } from './router/router';
+import { createStore } from './store/store';
 import { sync } from 'vuex-router-sync'
 
 export function createApp() {

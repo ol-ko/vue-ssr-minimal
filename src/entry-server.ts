@@ -1,6 +1,6 @@
 import { createApp } from './app';
 
-export default context => {
+export default (context:any) => {
 	return new Promise((resolve, reject) => {
         const {app, router, store} = createApp();
 
@@ -14,11 +14,8 @@ export default context => {
 			}
 
 			Promise.all(matchedComponents.map(Component => {
-				if (Component.asyncData) {
-					return Component.asyncData({
-						store,
-						route: router.currentRoute
-					});
+				if ((Component as any).asyncData) {
+					return (Component as any).asyncData(store, router.currentRoute);
 				}
 			}))
 				.then(() => {

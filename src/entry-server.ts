@@ -13,6 +13,7 @@ export default (context:any) => {
 				return reject({ code: 404 });
 			}
 
+			// PRE-FETCHING DATA FOR ROUTES
 			Promise.all(matchedComponents.map(Component => {
 				if ((Component as any).options.methods.asyncData) {
 					return (Component as any).options.methods.asyncData(store, router.currentRoute);

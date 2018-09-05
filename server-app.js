@@ -1,10 +1,14 @@
-const path = require('path');
+// SERVER BUNDLE
 const createApp = require('./dist/vue-ssr-server-bundle.json');
+// CLIENT BUNDLE
+const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+
+const path = require('path');
 const express = require('express');
-const serverApp = express();
 const { createBundleRenderer } = require('vue-server-renderer');
 const fs = require('fs');
-const clientManifest = require('./dist/vue-ssr-client-manifest.json');
+
+const serverApp = express();
 
 const renderer = createBundleRenderer(
 	createApp,
@@ -15,8 +19,10 @@ const renderer = createBundleRenderer(
 	}
 );
 
+// Serving static files
 serverApp.get('*.*', express.static(path.resolve(__dirname, 'dist')));
 
+// SSR
 serverApp.get('*', (request, response) => {
 	const context = {
 		url: request.url,

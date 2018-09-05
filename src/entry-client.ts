@@ -19,19 +19,19 @@ router.onReady(() => {
 	// 		}
 	// 	},
 	// 	// fetch data needed for the route on route update (e.g. param change)
-	// 	beforeRouteUpdate(to, from, next) {
-	// 		const { asyncData } = this.$options;
-	// 		if (asyncData) {
-	// 			asyncData({
-	// 				store: this.$store,
-	// 				route: to
-	// 			})
-	// 				.then(next)
-	// 				.catch(next);
-	// 		} else {
-	// 			next();
-	// 		}
-	// 	}
+	// 	// beforeRouteUpdate(to, from, next) {
+	// 	// 	const { asyncData } = this.$options;
+	// 	// 	if (asyncData) {
+	// 	// 		asyncData({
+	// 	// 			store: this.$store,
+	// 	// 			route: to
+	// 	// 		})
+	// 	// 			.then(next)
+	// 	// 			.catch(next);
+	// 	// 	} else {
+	// 	// 		next();
+	// 	// 	}
+	// 	// }
 	// });
 
 	app.$mount('#app');

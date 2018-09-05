@@ -1,0 +1,31 @@
+service: vue-ssr-minimal
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  region: eu-central-1
+
+functions:
+  renderer:
+    handler: lambda.renderer
+    events:
+    - http:
+        path: /
+        method: get
+    - http:
+        path: "{proxy+}"
+        method: get
+
+plugins:
+  - serverless-apigw-binary
+
+package:
+  exclude:
+    - src/**
+    - build/**
+    - public/**
+
+custom:
+  apigwBinary:
+    types:
+      - '*/*'

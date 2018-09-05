@@ -14,13 +14,16 @@ export default (context:any) => {
 			}
 
 			Promise.all(matchedComponents.map(Component => {
-				if ((Component as any).asyncData) {
-					return (Component as any).asyncData(store, router.currentRoute);
+				if ((Component as any).options.methods.asyncData) {
+					return (Component as any).options.methods.asyncData(store, router.currentRoute);
 				}
 			}))
 				.then(() => {
 					context.state = store.state;
 					resolve(app);
+				})
+				.catch((err) => {
+					console.log(err);
 				});
 		}, reject);
 	});

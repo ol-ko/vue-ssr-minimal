@@ -6,10 +6,11 @@ Vue.use(Router);
 export function createRouter() {
 	return new Router({
 		mode: 'history',
-        // scrollBehavior: () => ({ y: 0 }),
+        fallback: false,
+        base: '/dev/',
 		routes: [
-			{ path: '/', component: () => import('../pages/Home.vue') },
-			{ path: '/item/:id', component: () => import('../pages/Item.vue') },
+			{ path: '/', component: () => import('../pages/index.vue') },
+			{ path: '/location', component: () => import('../pages/Location.vue') },
 		]
 	});
 };

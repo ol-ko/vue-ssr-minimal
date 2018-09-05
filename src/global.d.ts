@@ -3,6 +3,8 @@ declare module '*.vue' {
     export default Vue;
 }
 
+declare module 'sweet-modal-vue';
+
 declare var require: {
     <T>(path: string): T;
     (paths: string[], callback: (...modules: any[]) => void): void;

@@ -1,19 +1,19 @@
 const VueLoader = require('vue-loader');
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
+    mode: 'none',
+    devtool: '#cheap-module-source-map',
+    output: {
+        path: path.resolve(__dirname, '../dist'),
+        publicPath: '/dev/',
+        filename: '[name].[chunkhash].js'
+    },
 	module: {
 		rules: [
-			// {
-			// 	test: '/\.js$/',
-			// 	exclude: /node_modules/,
-            //     loader: 'babel-loader',
-            //     options: {
-            //         presets: ['@babel/preset-env']
-            //     }
-			// },
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader'
@@ -56,5 +56,10 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         }
     },
-	plugins: [ new VueLoader.VueLoaderPlugin() ]
+	plugins: [
+        new CopyWebpackPlugin([{
+            from: 'public'
+        }]),
+	    new VueLoader.VueLoaderPlugin()
+    ]
 };
